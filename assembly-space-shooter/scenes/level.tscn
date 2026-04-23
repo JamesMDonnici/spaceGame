@@ -1,0 +1,241 @@
+[gd_scene format=3 uid="uid://bsw34gavcqamr"]
+
+[ext_resource type="PackedScene" uid="uid://4y2quf0af7s2" path="res://scenes/player.tscn" id="1_2q6dc"]
+[ext_resource type="Script" uid="uid://frbosytf8ej7" path="res://scenes/level.gd" id="1_mx8sn"]
+[ext_resource type="Texture2D" uid="uid://ch8770kvmk1bw" path="res://Godot assets/background_640x360.png" id="1_w7c3h"]
+[ext_resource type="Texture2D" uid="uid://fqc7r5kqe1yp" path="res://Godot assets/Star/star_frame_00_16x16.png" id="4_t1rx8"]
+[ext_resource type="Texture2D" uid="uid://bne7lo4hbw5xm" path="res://Godot assets/Star/star_frame_01_16x16.png" id="5_8iemx"]
+[ext_resource type="Texture2D" uid="uid://csxv8ggykqxme" path="res://Godot assets/Star/star_frame_02_16x16.png" id="6_64w2a"]
+[ext_resource type="Texture2D" uid="uid://gkyvewrbu1gf" path="res://Godot assets/Star/star_frame_03_16x16.png" id="7_fpun6"]
+[ext_resource type="Texture2D" uid="uid://dotg11ebk25c4" path="res://Godot assets/Star/star_frame_04_16x16.png" id="8_wc255"]
+[ext_resource type="Texture2D" uid="uid://day3o6ht5cept" path="res://Godot assets/Star/star_frame_05_16x16.png" id="9_arp2o"]
+[ext_resource type="Texture2D" uid="uid://beq453qx44v43" path="res://Godot assets/Star/star_frame_06_16x16.png" id="10_ux5qa"]
+[ext_resource type="Texture2D" uid="uid://beusccnd6f86c" path="res://Godot assets/Star/star_frame_07_16x16.png" id="11_82cfe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8frs"]
+size = Vector2(75, 778.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mx8sn"]
+size = Vector2(1340, 92)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gunhw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_t1rx8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8iemx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_64w2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fpun6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wc255")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_arp2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ux5qa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_82cfe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Level" type="Node2D" unique_id=1755269415]
+script = ExtResource("1_mx8sn")
+
+[node name="BG" type="Sprite2D" parent="." unique_id=1579287363]
+position = Vector2(640, 366.5)
+scale = Vector2(2.1187503, 2.1472223)
+texture = ExtResource("1_w7c3h")
+
+[node name="Player" parent="." unique_id=1092843049 instance=ExtResource("1_2q6dc")]
+position = Vector2(643, 615)
+
+[node name="Borders" type="Node2D" parent="." unique_id=294178818]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders" unique_id=895815169]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D" unique_id=2034217912]
+position = Vector2(1330, 367)
+shape = SubResource("RectangleShape2D_w8frs")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Borders" unique_id=2069102717]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2" unique_id=745236768]
+position = Vector2(-40, 370.375)
+shape = SubResource("RectangleShape2D_w8frs")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Borders" unique_id=1348687671]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3" unique_id=1809399475]
+position = Vector2(638, -48)
+shape = SubResource("RectangleShape2D_mx8sn")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Borders" unique_id=1812731021]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D4" unique_id=15146857]
+position = Vector2(644, 767)
+shape = SubResource("RectangleShape2D_mx8sn")
+
+[node name="MeteorTimer" type="Timer" parent="." unique_id=712420501]
+wait_time = 0.2
+autostart = true
+
+[node name="Meteors" type="Node2D" parent="." unique_id=874764108]
+
+[node name="Lasers" type="Node2D" parent="." unique_id=1216220053]
+
+[node name="Stars" type="Node2D" parent="." unique_id=1868327519]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Stars" unique_id=74424229]
+position = Vector2(-1, -1)
+scale = Vector2(2.5625, 2.125)
+sprite_frames = SubResource("SpriteFrames_gunhw")
+autoplay = "default"
+frame = 4
+frame_progress = 0.8852756
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Stars" unique_id=73434507]
+position = Vector2(-1, -1)
+scale = Vector2(2.5625, 2.125)
+sprite_frames = SubResource("SpriteFrames_gunhw")
+autoplay = "default"
+frame = 4
+frame_progress = 0.8852756
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Stars" unique_id=736024083]
+position = Vector2(-1, -1)
+scale = Vector2(2.5625, 2.125)
+sprite_frames = SubResource("SpriteFrames_gunhw")
+autoplay = "default"
+frame = 4
+frame_progress = 0.8852756
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Stars" unique_id=1474039157]
+position = Vector2(-1, -1)
+scale = Vector2(2.5625, 2.125)
+sprite_frames = SubResource("SpriteFrames_gunhw")
+autoplay = "default"
+frame = 4
+frame_progress = 0.8852756
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Stars" unique_id=695370183]
+position = Vector2(-1, -1)
+scale = Vector2(2.5625, 2.125)
+sprite_frames = SubResource("SpriteFrames_gunhw")
+autoplay = "default"
+frame = 4
+frame_progress = 0.8852756
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="Stars" unique_id=124399851]
+position = Vector2(-1, -1)
+scale = Vector2(2.5625, 2.125)
+sprite_frames = SubResource("SpriteFrames_gunhw")
+autoplay = "default"
+frame = 4
+frame_progress = 0.8852756
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="Stars" unique_id=2076789406]
+position = Vector2(-1, -1)
+scale = Vector2(2.5625, 2.125)
+sprite_frames = SubResource("SpriteFrames_gunhw")
+autoplay = "default"
+frame = 4
+frame_progress = 0.8852756
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="Stars" unique_id=358558567]
+position = Vector2(-1, -1)
+scale = Vector2(2.5625, 2.125)
+sprite_frames = SubResource("SpriteFrames_gunhw")
+autoplay = "default"
+frame = 4
+frame_progress = 0.8852756
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="Stars" unique_id=1764465889]
+position = Vector2(-1, -1)
+scale = Vector2(2.5625, 2.125)
+sprite_frames = SubResource("SpriteFrames_gunhw")
+autoplay = "default"
+frame = 4
+frame_progress = 0.8852756
+
+[node name="AnimatedSprite2D10" type="AnimatedSprite2D" parent="Stars" unique_id=236576304]
+position = Vector2(-1, -1)
+scale = Vector2(2.5625, 2.125)
+sprite_frames = SubResource("SpriteFrames_gunhw")
+autoplay = "default"
+frame = 4
+frame_progress = 0.8852756
+
+[node name="AnimatedSprite2D11" type="AnimatedSprite2D" parent="Stars" unique_id=44329331]
+position = Vector2(-1, -1)
+scale = Vector2(2.5625, 2.125)
+sprite_frames = SubResource("SpriteFrames_gunhw")
+autoplay = "default"
+frame = 4
+frame_progress = 0.8852756
+
+[node name="AnimatedSprite2D12" type="AnimatedSprite2D" parent="Stars" unique_id=1406734269]
+position = Vector2(-1, -1)
+scale = Vector2(2.5625, 2.125)
+sprite_frames = SubResource("SpriteFrames_gunhw")
+autoplay = "default"
+frame = 4
+frame_progress = 0.8852756
+
+[node name="AnimatedSprite2D13" type="AnimatedSprite2D" parent="Stars" unique_id=520440264]
+position = Vector2(-1, -1)
+scale = Vector2(2.5625, 2.125)
+sprite_frames = SubResource("SpriteFrames_gunhw")
+autoplay = "default"
+frame = 4
+frame_progress = 0.8852756
+
+[node name="AnimatedSprite2D14" type="AnimatedSprite2D" parent="Stars" unique_id=68132540]
+position = Vector2(-1, -1)
+scale = Vector2(2.5625, 2.125)
+sprite_frames = SubResource("SpriteFrames_gunhw")
+autoplay = "default"
+frame = 4
+frame_progress = 0.8852756
+
+[node name="AnimatedSprite2D15" type="AnimatedSprite2D" parent="Stars" unique_id=1769242003]
+position = Vector2(-1, -1)
+scale = Vector2(2.5625, 2.125)
+sprite_frames = SubResource("SpriteFrames_gunhw")
+autoplay = "default"
+frame = 4
+frame_progress = 0.8852756
+
+[node name="AnimatedSprite2D16" type="AnimatedSprite2D" parent="Stars" unique_id=407172029]
+position = Vector2(-1, -1)
+scale = Vector2(2.5625, 2.125)
+sprite_frames = SubResource("SpriteFrames_gunhw")
+autoplay = "default"
+frame = 4
+frame_progress = 0.8852756
+
+[node name="AnimatedSprite2D17" type="AnimatedSprite2D" parent="Stars" unique_id=712671809]
+position = Vector2(-1, -1)
+scale = Vector2(2.5625, 2.125)
+sprite_frames = SubResource("SpriteFrames_gunhw")
+autoplay = "default"
+frame = 4
+frame_progress = 0.8852756
+
+[connection signal="laser" from="Player" to="." method="_on_player_laser"]
+[connection signal="timeout" from="MeteorTimer" to="." method="_on_meteor_timer_timeout"]

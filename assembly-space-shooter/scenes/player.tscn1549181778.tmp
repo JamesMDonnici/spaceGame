@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://4y2quf0af7s2"]
+
+[ext_resource type="Texture2D" uid="uid://d1s06psribgnf" path="res://Godot assets/ship_128.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://blsevfxwiqp57" path="res://scenes/player.gd" id="1_g2els"]
+
+[node name="Player" type="Node2D" unique_id=1092843049]
+script = ExtResource("1_g2els")
+
+[node name="PlayerImage" type="Sprite2D" parent="." unique_id=139875022]
+texture = ExtResource("1_3vyb7")

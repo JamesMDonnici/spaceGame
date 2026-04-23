@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bsw34gavcqamr"]
+
+[ext_resource type="PackedScene" uid="uid://4y2quf0af7s2" path="res://scenes/player.tscn" id="1_2q6dc"]
+[ext_resource type="Script" uid="uid://frbosytf8ej7" path="res://scenes/level.gd" id="1_mx8sn"]
+[ext_resource type="Texture2D" uid="uid://ch8770kvmk1bw" path="res://Godot assets/background_640x360.png" id="1_w7c3h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8frs"]
+size = Vector2(75, 751.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mx8sn"]
+size = Vector2(1340, 92)
+
+[node name="Level" type="Node2D" unique_id=1755269415]
+script = ExtResource("1_mx8sn")
+
+[node name="BG" type="Sprite2D" parent="." unique_id=1579287363]
+position = Vector2(640, 366.5)
+scale = Vector2(2.1187503, 2.1472223)
+texture = ExtResource("1_w7c3h")
+
+[node name="Player" parent="." unique_id=1092843049 instance=ExtResource("1_2q6dc")]
+position = Vector2(643, 615)
+
+[node name="Borders" type="Node2D" parent="." unique_id=294178818]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Borders" unique_id=895815169]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D" unique_id=2034217912]
+position = Vector2(1330, 367)
+shape = SubResource("RectangleShape2D_w8frs")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Borders" unique_id=2069102717]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D2" unique_id=745236768]
+position = Vector2(-40, 384)
+shape = SubResource("RectangleShape2D_w8frs")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Borders" unique_id=1348687671]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D3" unique_id=1809399475]
+position = Vector2(638, -48)
+shape = SubResource("RectangleShape2D_mx8sn")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Borders" unique_id=1812731021]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/StaticBody2D4" unique_id=15146857]
+position = Vector2(644, 767)
+shape = SubResource("RectangleShape2D_mx8sn")
+
+[node name="MeteorTimer" type="Timer" parent="." unique_id=712420501]
+wait_time = 0.2
+autostart = true
+
+[node name="Meteors" type="Node2D" parent="." unique_id=874764108]
+
+[node name="Lasers" type="Node2D" parent="." unique_id=1216220053]
+
+[connection signal="laser" from="Player" to="." method="_on_player_laser"]
+[connection signal="timeout" from="MeteorTimer" to="." method="_on_meteor_timer_timeout"]

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dxjewro8oeppa"]
+
+[ext_resource type="Script" uid="uid://bkq8q4c0k0sk7" path="res://scenes/meteor.gd" id="1_pxso2"]
+[ext_resource type="Texture2D" uid="uid://ckd83ic301y3l" path="res://Godot assets/asteroid_64.png" id="1_tcwo0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tcwo0"]
+radius = 28.01785
+
+[node name="Meteor" type="Area2D" unique_id=675568118]
+script = ExtResource("1_pxso2")
+
+[node name="DaRock" type="Sprite2D" parent="." unique_id=2003612454]
+texture = ExtResource("1_tcwo0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=302110977]
+position = Vector2(-5, -4)
+shape = SubResource("CircleShape2D_tcwo0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
