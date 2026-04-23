@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://ddcb7thh2o76q"]
+
+[ext_resource type="Texture2D" uid="uid://dhbm4vr8s67ed" path="res://Godot assets/ship_64.png" id="1_nt7q6"]
+[ext_resource type="Script" uid="uid://u0rofxivajit" path="res://scenes/ui.gd" id="1_x4jx1"]
+
+[node name="UI" type="CanvasLayer" unique_id=1604696438 groups=["ui"]]
+script = ExtResource("1_x4jx1")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=951045125]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -57.0
+offset_right = 57.0
+offset_bottom = 89.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 20
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=1609951878]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.87471336, 0.8982581, 0.9251818, 1)
+theme_override_font_sizes/font_size = 50
+text = "0"
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1349230467]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -64.0
+offset_right = 268.0
+grow_vertical = 0
+theme_override_constants/margin_left = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2" unique_id=1693085494]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer2/HBoxContainer" unique_id=119854022]
+layout_mode = 2
+texture = ExtResource("1_nt7q6")
+stretch_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer2/HBoxContainer" unique_id=1721702120]
+layout_mode = 2
+texture = ExtResource("1_nt7q6")
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer2/HBoxContainer" unique_id=1710825702]
+layout_mode = 2
+texture = ExtResource("1_nt7q6")
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer2/HBoxContainer" unique_id=1616147812]
+layout_mode = 2
+texture = ExtResource("1_nt7q6")
+
+[node name="ScoreTimer" type="Timer" parent="." unique_id=1207012848]
+autostart = true
+
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
